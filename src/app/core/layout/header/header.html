@@ -1,1 +1,19 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__top">
+    <span>Est. 2026</span>
+    <span>{{ currentDate | date: 'MMMM d, y' }}</span>
+    <span>{{ filmsCount }} Films in Archive</span>
+  </div>
+  <div class="header__logo">The Film Collection</div>
+  <div class="header__subtitle">The World's Most Distinguished Motion Picture Catalogue</div>
+  <nav class="header__nav">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="header__link"
+      >Home</a
+    >
+    <a routerLink="/about" routerLinkActive="active" class="header__link">About</a>
+  </nav>
+</header>

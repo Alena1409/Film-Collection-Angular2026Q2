@@ -1,5 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
-*{
+:root {
+  --bg: #f5f0e8; /* бумага */
+  --bg-dark: #ede8dc; /* чуть темнее — для навбара, полосок */
+  --surface: #faf7f2; /* карточки, поверхности поверх бумаги */
+
+  --ink: #1a1209; /* основной текст */
+  --ink-mid: #3d3020; /* вторичный текст */
+  --ink-light: #6b5b45; /* мuted — мета, подписи */
+
+  --accent: #8b1a1a; /* красный акцент — рейтинг, теги, hover */
+  --accent-light: #b8453a; /* светлее — hover state кнопок */
+
+  --rule: #2a1f0e; /* толстые разделители (double border) */
+  --border: rgba(26, 18, 9, 0.2); /* тонкие линии колонок */
+
+
+  --font-display: 'UnifrakturMaguntia', serif; /* мастхед */
+  --font-serif: 'Playfair Display', Georgia, serif; /* заголовки карточек */
+  --font-body: 'Libre Baskerville', Georgia, serif; /* основной текст */
+
+  --radius: 4px; /* газета — острые углы, не круглые */
+  --radius-sm: 2px;
+  --col-gap: 16px;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
