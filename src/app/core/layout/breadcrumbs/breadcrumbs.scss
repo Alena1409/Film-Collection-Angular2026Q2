@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding: 4px 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+span {
+  color: var(--ink-mid);
+}

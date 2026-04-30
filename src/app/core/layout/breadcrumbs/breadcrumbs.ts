@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './breadcrumbs.scss',
 })
 export class Breadcrumbs {
+  protected readonly breadcrumbs = 'Home=>'
 
 }

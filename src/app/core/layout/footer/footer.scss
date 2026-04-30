@@ -1,0 +1,21 @@
+footer {
+  background: var(--ink);
+  color: var(--surface);
+  padding: 8px 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  a {
+    color: #c8a870;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--accent-light);
+    }
+  }
+}
