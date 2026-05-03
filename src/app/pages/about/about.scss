@@ -1,0 +1,244 @@
+.about {
+  display: grid;
+  grid-template-columns: 180px 1fr 160px;
+  gap: 0;
+  padding: 20px 28px;
+  border-top: 2px solid var(--rule);
+
+  &__author {
+    padding-right: 20px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border: 1px solid var(--ink-light);
+    filter: grayscale(40%) sepia(20%);
+  }
+
+  &__author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  &__name {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  &__role {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--ink-mid);
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--accent-light);
+      }
+    }
+  }
+
+  &__editorial {
+    padding: 0 20px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__tag {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    align-self: flex-start;
+  }
+
+  &__headline {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+
+    &:first-of-type::first-letter {
+      font-size: 36px;
+      font-weight: 700;
+      float: left;
+      line-height: 0.85;
+      margin: 2px 5px 0 0;
+      color: var(--accent);
+      font-family: var(--font-serif);
+    }
+  }
+
+  &__quote {
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+    padding: 8px 0;
+    text-align: center;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  &__ornament {
+    text-align: center;
+    font-size: 14px;
+    color: var(--ink-light);
+    letter-spacing: 4px;
+    display: block;
+  }
+
+  &__disclaimer {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  &__stack {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__stack-title {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  &__stack-list {
+    list-style: none;
+    flex: 1;
+  }
+
+  &__stack-item {
+    font-size: 12px;
+    color: var(--ink-mid);
+    border-bottom: 0.5px solid var(--border);
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 10px;
+      color: var(--accent);
+      border: 0.5px solid var(--accent);
+      padding: 1px 5px;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  &__github {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    font-family: var(--font-body);
+    text-align: center;
+    transition: all 0.15s;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--ink);
+      color: var(--bg);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+
+    &__author,
+    &__editorial {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    &__editorial {
+      padding: 0;
+    }
+
+    &__stack {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    padding: 20px;
+
+    &__headline {
+      font-size: 24px;
+    }
+
+    &__text,
+    &__quote,
+    &__disclaimer,
+    &__stack-item,
+    &__contacts {
+      font-size: 13px;
+    }
+
+    &__stack-item {
+      gap: 8px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
