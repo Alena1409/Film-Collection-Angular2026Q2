@@ -1,16 +1,62 @@
-<p>catalog works!</p>
-<div class="movie-card">
-  <img src="poster.jpg" alt="Movie poster" />
+<main class="catalog" aria-labelledby="catalog-title">
+  <div class="catalog__controls">
+    <label class="catalog__search" for="catalog-search">
+      <span class="catalog__search-label">Search Archives:</span>
+      <input
+        id="catalog-search"
+        class="catalog__search-input"
+        type="text"
+        placeholder="Enter film title..."
+        [value]="searchQuery()"
+        (input)="onSearch($event)"
+      />
+    </label>
 
-  <div class="overlay"></div>
-
-  <div class="content">
-    <h3 class="title">Inception</h3>
-    <p class="info">2010 • Sci-Fi</p>
-
-    <div class="bottom">
-      <span class="rating">⭐ 8.8</span>
-      <button class="btn">Watch</button>
-    </div>
+    <button
+      class="catalog__fav-btn"
+      type="button"
+      (click)="toggleFavFilter()"
+      [class.active]="showFavs()"
+      [attr.aria-pressed]="showFavs()"
+    >
+      {{ showFavs() ? '★ All Films' : '☆ Favourites' }}
+    </button>
   </div>
-</div>
+
+  @if (filteredFilms().length === 0) {
+    <p class="catalog__empty">— Nothing found matching your query —</p>
+  }
+
+  <div class="catalog__grid" aria-live="polite">
+    @for (film of filteredFilms(); track film.id) {
+      <article class="film-card">
+        <a
+          class="film-card__link"
+          [routerLink]="['/film', film.id]"
+          [attr.aria-labelledby]="'film-title-' + film.id"
+        >
+          <img class="film-card__poster" [src]="film.posterUrl" [alt]="film.title + ' poster'" />
+
+          <div class="film-card__body">
+            <div class="film-card__meta">{{ film.year }} · {{ film.genre }}</div>
+            <h2 class="film-card__title" [id]="'film-title-' + film.id">{{ film.title }}</h2>
+            <div class="film-card__bottom">
+              <span class="film-card__rating">★ {{ film.rating }}</span>
+              <span class="film-card__cta">Open details</span>
+            </div>
+          </div>
+        </a>
+
+        <button
+          class="film-card__fav"
+          type="button"
+          (click)="toggleFav($event, film.id)"
+          [attr.aria-label]="film.isFavorite ? 'Remove from favourites' : 'Add to favourites'"
+          [class.active]="film.isFavorite"
+        >
+          {{ film.isFavorite ? '★' : '☆' }}
+        </button>
+      </article>
+    }
+  </div>
+</main>

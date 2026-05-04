@@ -8,12 +8,10 @@ import filmsData from './../data/films-data.json';
 export class Api {
   private readonly _films = signal<Film[]>(filmsData);
 
-  get films() {
-    return this._films();
-  }
+  readonly films = this._films.asReadonly();
 
   getById(id: number) {
-    return this.films.find((item: Film) => item.id === id);
+    return this._films().find((item: Film) => item.id === id);
   }
 
   toggleFavorite(id: number) {
@@ -24,5 +22,5 @@ export class Api {
     );
   }
 
-  getFavoriteFilms = computed(() => this._films().filter((item) => item.isFavorite === true));
+  readonly getFavoriteFilms = computed(() => this._films().filter((item) => item.isFavorite));
 }
